@@ -6,6 +6,7 @@
         <StackPanel VerticalAlignment="Center">
             <TextBlock Text="{Binding ApplicationName}" FontSize="28" FontWeight="SemiBold" />
             <TextBlock Text="{Binding Version}" Margin="0,8,0,0" FontSize="14" />
+            <TextBlock Text="{Binding Stage}" Margin="0,8,0,0" FontSize="14" />
             <TextBlock Text="{Binding Status}" Margin="0,24,0,0" TextWrapping="Wrap" FontSize="16" />
             <TextBlock Margin="0,24,0,0" TextWrapping="Wrap" Foreground="DarkRed"
                        Text="非官方项目。当前阶段仅为工程骨架，不包含可执行游戏自动化。" />

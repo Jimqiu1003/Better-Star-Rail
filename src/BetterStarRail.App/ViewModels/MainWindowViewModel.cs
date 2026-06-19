@@ -1,8 +1,25 @@
+using BetterStarRail.App.Configuration;
+using BetterStarRail.Core.Diagnostics;
+using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.Extensions.Options;
+
 namespace BetterStarRail.App.ViewModels;
 
-public sealed class MainWindowViewModel
+public sealed class MainWindowViewModel : ObservableObject
 {
-    public string ApplicationName => "Better Star Rail";
-    public string Version => "0.1.0-dev";
-    public string Status => "工程初始化完成，尚未实现游戏自动化功能。";
+    public MainWindowViewModel(IOptions<ApplicationOptions> options, AppStatus appStatus)
+    {
+        ApplicationName = options.Value.Name;
+        Version = options.Value.Version;
+        Stage = appStatus.Stage;
+        Status = appStatus.Message;
+    }
+
+    public string ApplicationName { get; }
+
+    public string Version { get; }
+
+    public string Stage { get; }
+
+    public string Status { get; }
 }
