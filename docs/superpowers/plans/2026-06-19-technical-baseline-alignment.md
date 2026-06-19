@@ -51,4 +51,4 @@
 - [ ] Run restore, format, Release build, and test locally.
 - [x] Scan tracked files for secrets, build output, forbidden copied assets, and stale active-baseline references.
 - [x] Run `git diff --check` and inspect `git status`.
-- [ ] Commit, push without force, and verify the resulting GitHub Actions run.
+- [x] Commit, push without force, and verify the resulting GitHub Actions run.
