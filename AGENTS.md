@@ -28,7 +28,15 @@ Unattended execution must be disabled by default. When explicitly enabled by a u
 
 ## Required Checks
 
-Before work, read `README.md`, `docs/COMPLIANCE_BOUNDARIES.md`, `docs/DEVELOPMENT_RULES.md`, `docs/RISK_REGISTER.md`, `docs/ARCHITECTURE.md`, and `docs/decisions/*.md`.
+Before work, read all of the following:
+
+- `docs/project-status/V0-BASELINE.md`;
+- `Better-Star-Rail-v0.1-PRD.md` and `docs/PRD.md`;
+- `docs/decisions/*.md`;
+- `Better-Star-Rail-v0.1-风险清单.md` and `docs/RISK_REGISTER.md`;
+- `Better-Star-Rail-v0.1-视觉自动化立项包/docs/05-绝对禁止项.md`;
+- `Better-Star-Rail-仓库初始化任务书-v0.1.md`;
+- `docs/COMPLIANCE_BOUNDARIES.md`, `docs/DEVELOPMENT_RULES.md`, and `docs/ARCHITECTURE.md`.
 
 After relevant changes, run `dotnet restore`, `dotnet format --verify-no-changes`, `dotnet build --configuration Release --no-restore`, `dotnet test --configuration Release --no-build`, `git diff --check`, and `git status --short` when available.
 

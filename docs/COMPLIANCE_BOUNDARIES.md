@@ -12,7 +12,7 @@ When documents conflict, the safer and more restrictive rule wins until a new ac
 
 ## Unattended Runtime
 
-Unattended operation is disabled by default. A user must explicitly enable it, the default maximum runtime is 60 minutes, and stop controls and fail-closed behavior must remain available throughout the run.
+Unattended operation is outside V0 implementation scope. Future implementation must be disabled by default and explicitly enabled by a user. Its default maximum runtime is 60 minutes; 3 consecutive failures or 5 repeated actions on the same page must stop the run. An independent emergency stop, watchdog, and fail-closed behavior are mandatory.
 
 ## Clean-room Rule
 

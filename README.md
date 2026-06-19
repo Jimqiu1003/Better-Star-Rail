@@ -1,6 +1,6 @@
 ﻿# Better Star Rail
 
-Better Star Rail is an unofficial C# Windows desktop automation framework for Honkai: Star Rail. The project is in repository-initialization stage only: it currently provides governance documents, a .NET solution skeleton, CI configuration, and minimal tests. It does not provide usable game automation yet.
+Better Star Rail is an unofficial C# Windows desktop automation framework for Honkai: Star Rail. The project is in V0 engineering-baseline stage: it provides governance documents, a WPF Generic Host shell, local configuration/logging foundations, CI, security analysis, and offline tests. It does not provide usable game automation.
 
 ## Safety and Compliance
 
@@ -17,6 +17,7 @@ Forbidden directions include game process injection, DLL injection, hooks, memor
 - C# 14 and .NET 10 LTS target framework
 - Windows 10/11 x64
 - WPF application shell
+- Generic Host, dependency injection, CommunityToolkit.Mvvm, and Serilog
 - Modular monolith structure
 - xUnit test projects
 - GitHub Actions CI
@@ -32,6 +33,10 @@ dotnet restore
 dotnet build --configuration Release
 dotnet test --configuration Release
 ```
+
+Runtime logs are stored under `%LocalAppData%\BetterStarRail\logs\`. Optional user configuration belongs under `%LocalAppData%\BetterStarRail\config\`; neither location is inside the repository.
+
+The active V0 decisions are summarized in `docs/project-status/V0-BASELINE.md`.
 
 ## License
 

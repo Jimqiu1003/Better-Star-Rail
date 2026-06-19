@@ -13,7 +13,7 @@
 1. 正式技术基线为 C# 14、.NET 10 LTS、WPF 和 Windows x64，不得使用 .NET 8。
 2. 项目采用 clean-room 独立实现，主许可证为 Apache License 2.0，不采用 GPL-3.0，不创建 `LICENSE-PENDING`。
 3. 目录、模块命名和依赖方向严格遵循 `Better-Star-Rail-仓库初始化任务书-v0.1.md`，Windows 基础设施模块命名为 `BetterStarRail.Infrastructure.Windows`。
-4. 无人值守功能默认关闭；用户明确启用后，默认最大运行时间统一为 60 分钟，并且必须可停止、遇到未知状态必须终止。
+4. 无人值守功能不属于 V0 实现范围。未来若获准实现，必须默认关闭、由用户明确启用、默认最大运行 60 分钟；连续失败 3 次或同一页面重复动作 5 次时停止，并提供独立紧急停止、看门狗和未知状态安全终止。
 5. 禁止复制 BetterGI 或 Better-HSR-Currency-Wars 的源码、素材、模板、文案、坐标和阈值，也禁止翻译、改写或让生成式工具基于其实现重写。
 
 ## 优先级
