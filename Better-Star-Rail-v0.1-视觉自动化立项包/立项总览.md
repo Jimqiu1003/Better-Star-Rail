@@ -1,5 +1,7 @@
 # Better Star Rail v0.1 — A 方案立项包
 
+> 历史文档提示：许可证与复用规则以仓库根目录的 `docs/decisions/ADR-0004-approved-baseline-supersession.md` 为准。项目采用 Apache-2.0 clean-room 独立实现，不复制 BetterGI 或 Better-HSR-Currency-Wars 的源码、素材、模板、文案、坐标和阈值。
+
 > 项目定位：面向 Windows 的《崩坏：星穹铁道》非官方视觉自动化工具。  
 > 风险等级：高。第三方软件、模拟操作与无人值守功能可能违反游戏用户条款，并可能导致账号处罚、功能失效、软件被拦截或项目被要求停止。
 

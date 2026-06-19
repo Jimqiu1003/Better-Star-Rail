@@ -14,14 +14,16 @@ Forbidden directions include game process injection, DLL injection, hooks, memor
 
 ## Current Stack
 
-- C# and .NET 8 LTS target framework
+- C# 14 and .NET 10 LTS target framework
 - Windows 10/11 x64
 - WPF application shell
 - Modular monolith structure
 - xUnit test projects
 - GitHub Actions CI
 
-The legacy ADR package also contains .NET 10 proposals. This repository uses .NET 8 for the initial baseline because the current initialization request and PRD require .NET 8 LTS. The conflict is recorded in `docs/decisions/ADR-0001-technology-stack.md`.
+The approved baseline is C# 14, .NET 10 LTS, and WPF. `docs/decisions/ADR-0004-approved-baseline-supersession.md` supersedes conflicting .NET 8 and GPL proposals in historical source documents.
+
+User-enabled unattended runs must default to a maximum duration of 60 minutes and remain stoppable at any time.
 
 ## Build
 
@@ -33,4 +35,4 @@ dotnet test --configuration Release
 
 ## License
 
-The project is initialized under Apache-2.0 for independently authored code. Third-party material must be reviewed and recorded before use.
+The project uses Apache License 2.0 for clean-room, independently authored code. BetterGI and Better-HSR-Currency-Wars source code, assets, templates, wording, coordinates, and thresholds must not be copied.

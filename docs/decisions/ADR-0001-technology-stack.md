@@ -1,6 +1,6 @@
 ﻿# ADR-0001: Technology Stack
 
-Status: Accepted for repository initialization
+Status: Superseded by ADR-0004
 Date: 2026-06-19
 
 ## Context
@@ -17,4 +17,4 @@ The current explicit request and PRD are treated as higher priority for runtime.
 
 ## Consequences
 
-The existing .NET 10 and GPL notes are preserved in source documents for history. Future changes require a new ADR and compatibility review.
+The existing .NET 10 and GPL notes are preserved in source documents for history. ADR-0004 replaces this runtime decision with the approved C# 14 and .NET 10 LTS baseline.

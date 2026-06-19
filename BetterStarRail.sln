@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterStarRail.App", "src\B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterStarRail.Core", "src\BetterStarRail.Core\BetterStarRail.Core.csproj", "{400CAE46-86AE-4406-B9D6-CA9014EC0386}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterStarRail.Infrastructure", "src\BetterStarRail.Infrastructure\BetterStarRail.Infrastructure.csproj", "{C70DC4FE-F922-4A69-A253-EFA212DC245B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterStarRail.Infrastructure.Windows", "src\BetterStarRail.Infrastructure.Windows\BetterStarRail.Infrastructure.Windows.csproj", "{C70DC4FE-F922-4A69-A253-EFA212DC245B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetterStarRail.Automation", "src\BetterStarRail.Automation\BetterStarRail.Automation.csproj", "{AEAE3309-2E3E-48F8-89D6-6E00BBA4A84F}"
 EndProject

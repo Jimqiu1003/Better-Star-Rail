@@ -1,5 +1,7 @@
 # Better Star Rail 技术架构决策记录（ADR）v0.1
 
+> 历史文档提示：其中关于 GPL 复用、基础设施旧命名等冲突内容已被 `docs/decisions/ADR-0004-approved-baseline-supersession.md` 覆盖。现行规则是 Apache-2.0 clean-room 独立实现，并禁止复制 BetterGI 或 Better-HSR-Currency-Wars 的源码、素材、模板、文案、坐标和阈值。
+
 > 文档状态：**已接受（Accepted）**  
 > 决策日期：2026-06-19  
 > 适用版本：Better Star Rail v0.1～v0.x  

@@ -4,14 +4,11 @@
     <ProjectReference Include="..\BetterStarRail.Core\BetterStarRail.Core.csproj" />
     <ProjectReference Include="..\BetterStarRail.Automation\BetterStarRail.Automation.csproj" />
     <ProjectReference Include="..\BetterStarRail.Vision\BetterStarRail.Vision.csproj" />
-    <ProjectReference Include="..\BetterStarRail.Infrastructure\BetterStarRail.Infrastructure.csproj" />
+    <ProjectReference Include="..\BetterStarRail.Infrastructure.Windows\BetterStarRail.Infrastructure.Windows.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 

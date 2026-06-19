@@ -1,5 +1,7 @@
 # Third-Party Notices
 
+> Historical notice: GPL reuse is not part of the approved baseline. This repository uses Apache-2.0 clean-room implementation and does not copy BetterGI or Better-HSR-Currency-Wars materials.
+
 Complete this file before release.
 
 | Component | Version | Purpose | Source | License | Binary distribution notes |

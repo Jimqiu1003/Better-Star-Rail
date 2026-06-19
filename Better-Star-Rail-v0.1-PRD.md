@@ -1,5 +1,7 @@
 # Better Star Rail v0.1 产品需求文档（PRD）
 
+> 历史文档提示：其中关于 .NET 8 的表述已被 `docs/decisions/ADR-0004-approved-baseline-supersession.md` 覆盖。现行基线为 C# 14、.NET 10 LTS、WPF、Apache-2.0 clean-room 独立实现，无人值守默认最大运行时间为 60 分钟。
+
 > 文档状态：评审基线  
 > 版本：v0.1  
 > 日期：2026-06-19  
