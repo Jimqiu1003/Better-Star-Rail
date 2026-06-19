@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\BetterStarRail.Core\BetterStarRail.Core.csproj" />
+    <ProjectReference Include="..\BetterStarRail.Automation\BetterStarRail.Automation.csproj" />
+    <ProjectReference Include="..\BetterStarRail.Vision\BetterStarRail.Vision.csproj" />
+    <ProjectReference Include="..\BetterStarRail.Infrastructure\BetterStarRail.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+</Project>
+

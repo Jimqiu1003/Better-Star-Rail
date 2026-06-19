@@ -1,0 +1,18 @@
+﻿name: Feature request
+description: Suggest a feature within project safety boundaries.
+title: "feat: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Boundary check
+      options:
+        - label: This does not request injection, memory access, packet modification, anti-cheat bypass, credential collection, or detection evasion.
+          required: true

@@ -1,0 +1,22 @@
+﻿name: Bug report
+description: Report a project issue without sharing private account data.
+title: "bug: "
+labels: [bug]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Redact UID, nickname, chat, tokens, and local private paths before sharing.

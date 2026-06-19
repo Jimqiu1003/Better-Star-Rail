@@ -1,0 +1,14 @@
+﻿<Window x:Class="BetterStarRail.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Better Star Rail" Height="360" Width="640" MinHeight="320" MinWidth="520">
+    <Grid Margin="32">
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock Text="{Binding ApplicationName}" FontSize="28" FontWeight="SemiBold" />
+            <TextBlock Text="{Binding Version}" Margin="0,8,0,0" FontSize="14" />
+            <TextBlock Text="{Binding Status}" Margin="0,24,0,0" TextWrapping="Wrap" FontSize="16" />
+            <TextBlock Margin="0,24,0,0" TextWrapping="Wrap" Foreground="DarkRed"
+                       Text="非官方项目。当前阶段仅为工程骨架，不包含可执行游戏自动化。" />
+        </StackPanel>
+    </Grid>
+</Window>

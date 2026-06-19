@@ -1,0 +1,16 @@
+﻿* text=auto
+*.cs text eol=crlf
+*.xaml text eol=crlf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+
+*.md whitespace=-trailing-space,-blank-at-eof
+*.cs whitespace=-blank-at-eof
+*.csproj whitespace=-blank-at-eof
+*.xaml whitespace=-trailing-space,-blank-at-eof
