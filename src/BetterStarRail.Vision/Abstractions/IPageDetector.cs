@@ -5,5 +5,5 @@ namespace BetterStarRail.Vision.Abstractions;
 
 public interface IPageDetector
 {
-    PageDetectionResult Detect(CapturedFrame frame);
+    PageDetectionResult Detect(CapturedFrame frame, CancellationToken cancellationToken = default);
 }

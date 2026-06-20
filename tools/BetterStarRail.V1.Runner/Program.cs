@@ -57,7 +57,8 @@ var emergency = new EmergencyStopController();
 var safeInput = new SafeInputController(
     new SafetyGuard(new ActionWhitelist()),
     new WindowsMessageInputDispatcher(located.Snapshot.Identity),
-    emergency);
+    emergency,
+    () => windows.ReadSnapshot(located.Snapshot.Identity.Handle).Snapshot);
 var environment = new WindowsTestWorkflowEnvironment(
     located.Snapshot,
     windows,

@@ -16,14 +16,16 @@ public sealed class SolidColorPageDetector(double minimumConfidence = 0.95) : IP
             [TestPageId.Blocked] = (220, 50, 60),
         };
 
-    public PageDetectionResult Detect(CapturedFrame frame)
+    public PageDetectionResult Detect(CapturedFrame frame, CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(frame);
+        cancellationToken.ThrowIfCancellationRequested();
         var pixels = frame.Pixels.Span;
         long red = 0, green = 0, blue = 0;
         var count = frame.Width * frame.Height;
         for (var y = 0; y < frame.Height; y++)
         {
+            cancellationToken.ThrowIfCancellationRequested();
             for (var x = 0; x < frame.Width; x++)
             {
                 var offset = (y * frame.Stride) + (x * 4);

@@ -64,6 +64,7 @@ public static class Program
                     if (page == TestPageId.Welcome) page = TestPageId.Confirm;
                     else if (page == TestPageId.Confirm) page = TestPageId.Complete;
                     NativeMethods.InvalidateRect(handle, 0, true);
+                    NativeMethods.UpdateWindow(handle);
                 }
 
                 return 0;
@@ -72,6 +73,7 @@ public static class Program
                 {
                     page = (TestPageId)(wordParameter.ToInt32() - 0x30);
                     NativeMethods.InvalidateRect(handle, 0, true);
+                    NativeMethods.UpdateWindow(handle);
                 }
 
                 return 0;
@@ -89,8 +91,10 @@ public static class Program
         try
         {
             NativeMethods.GetClientRect(handle, out var client);
-            Fill(deviceContext, client, 0x00F4F4F4);
+            // 先更新识别锚点，再绘制不会覆盖锚点的背景，避免截图读到纯白过渡帧。
             Fill(deviceContext, new Rect { Left = 0, Top = 0, Right = 64, Bottom = 64 }, MarkerColor(page));
+            Fill(deviceContext, new Rect { Left = 64, Top = 0, Right = client.Right, Bottom = client.Bottom }, 0x00F4F4F4);
+            Fill(deviceContext, new Rect { Left = 0, Top = 64, Right = 64, Bottom = client.Bottom }, 0x00F4F4F4);
             NativeMethods.SetBkMode(deviceContext, 1);
             NativeMethods.SetTextColor(deviceContext, 0x00202020);
             var title = new Rect { Left = 100, Top = 80, Right = client.Right - 40, Bottom = 130 };

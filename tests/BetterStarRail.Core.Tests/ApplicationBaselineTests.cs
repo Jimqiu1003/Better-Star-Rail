@@ -19,6 +19,7 @@ public sealed class ApplicationBaselineTests
         Assert.Equal(expectedRoot, provider.RootDirectory);
         Assert.Equal(Path.Combine(expectedRoot, "logs"), provider.LogsDirectory);
         Assert.Equal(Path.Combine(expectedRoot, "config"), provider.ConfigurationDirectory);
+        Assert.Equal(Path.Combine(expectedRoot, "diagnostics"), provider.DiagnosticsDirectory);
         Assert.False(provider.RootDirectory.StartsWith(Directory.GetCurrentDirectory(), StringComparison.OrdinalIgnoreCase));
     }
 
@@ -34,6 +35,7 @@ public sealed class ApplicationBaselineTests
 
             Assert.True(Directory.Exists(provider.LogsDirectory));
             Assert.True(Directory.Exists(provider.ConfigurationDirectory));
+            Assert.True(Directory.Exists(provider.DiagnosticsDirectory));
         }
         finally
         {
@@ -58,7 +60,7 @@ public sealed class ApplicationBaselineTests
 
             Assert.Equal("Better Star Rail", viewModel.ApplicationName);
             Assert.Equal("V1", viewModel.Stage);
-            Assert.Equal("自建测试窗口安全闭环已完成", viewModel.Status);
+            Assert.Equal("V1 自建测试窗口安全闭环已完成，待主线集成", viewModel.Status);
         }
         finally
         {

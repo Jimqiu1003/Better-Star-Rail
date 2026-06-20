@@ -39,6 +39,19 @@ public sealed class SafeInputControllerTests
     }
 
     [Fact]
+    public async Task ClickAsync_rechecks_window_state_immediately_before_dispatch()
+    {
+        var raw = new RecordingInputDispatcher();
+        var changed = Snapshot with { IsForeground = false };
+        var controller = CreateController(raw, currentSnapshotProvider: () => changed);
+
+        var result = await controller.ClickAsync(Request(), new NormalizedPoint(0.5, 0.75), CancellationToken.None);
+
+        Assert.Equal(SafetyStopReason.WindowNotForeground, result.StopReason);
+        Assert.Equal(0, raw.Clicks);
+    }
+
+    [Fact]
     public async Task StopAsync_blocks_new_input_and_releases_pressed_keys()
     {
         var raw = new RecordingInputDispatcher();
@@ -53,8 +66,54 @@ public sealed class SafeInputControllerTests
         Assert.Equal(1, raw.ReleaseCalls);
     }
 
-    private static SafeInputController CreateController(RecordingInputDispatcher raw, EmergencyStopController? emergency = null) =>
-        new(new SafetyGuard(new ActionWhitelist()), raw, emergency ?? new EmergencyStopController());
+    [Fact]
+    public async Task StopAsync_releases_pressed_keys_even_when_caller_token_is_cancelled()
+    {
+        var raw = new RecordingInputDispatcher();
+        var emergency = new EmergencyStopController();
+        var controller = CreateController(raw, emergency);
+        using var cancellation = new CancellationTokenSource();
+        cancellation.Cancel();
+
+        await controller.StopAsync(Snapshot, cancellation.Token);
+
+        Assert.True(emergency.IsStopped);
+        Assert.Equal(1, raw.ReleaseCalls);
+    }
+
+    [Fact]
+    public async Task ClickAsync_releases_input_state_when_dispatch_fails()
+    {
+        var raw = new RecordingInputDispatcher { FailClick = true };
+        var controller = CreateController(raw);
+
+        var result = await controller.ClickAsync(Request(), new NormalizedPoint(0.5, 0.75), CancellationToken.None);
+
+        Assert.Equal(SafetyStopReason.InputDispatchFailed, result.StopReason);
+        Assert.Equal(1, raw.ReleaseCalls);
+    }
+
+    [Fact]
+    public async Task PressKeyAsync_releases_input_state_when_dispatch_fails()
+    {
+        var raw = new RecordingInputDispatcher { FailKey = true };
+        var controller = CreateController(raw);
+
+        var result = await controller.PressKeyAsync(Request(), AllowedKey.Enter, CancellationToken.None);
+
+        Assert.Equal(SafetyStopReason.InputDispatchFailed, result.StopReason);
+        Assert.Equal(1, raw.ReleaseCalls);
+    }
+
+    private static SafeInputController CreateController(
+        RecordingInputDispatcher raw,
+        EmergencyStopController? emergency = null,
+        Func<TargetWindowSnapshot?>? currentSnapshotProvider = null) =>
+        new(
+            new SafetyGuard(new ActionWhitelist()),
+            raw,
+            emergency ?? new EmergencyStopController(),
+            currentSnapshotProvider ?? (() => Snapshot));
 
     private static SafetyEvaluationRequest Request(TargetWindowSnapshot? current = null) => new(
         Snapshot,
@@ -68,19 +127,26 @@ public sealed class SafeInputControllerTests
         public int Clicks { get; private set; }
         public int ReleaseCalls { get; private set; }
         public ClientPoint LastPoint { get; private set; }
+        public bool FailClick { get; init; }
+        public bool FailKey { get; init; }
 
         public ValueTask<OperationResult> ClickAsync(nint windowHandle, ClientPoint point, CancellationToken cancellationToken)
         {
             Clicks++;
             LastPoint = point;
-            return ValueTask.FromResult(OperationResult.Success());
+            return ValueTask.FromResult(FailClick
+                ? OperationResult.Failure("模拟鼠标释放失败")
+                : OperationResult.Success());
         }
 
         public ValueTask<OperationResult> PressKeyAsync(nint windowHandle, AllowedKey key, CancellationToken cancellationToken) =>
-            ValueTask.FromResult(OperationResult.Success());
+            ValueTask.FromResult(FailKey
+                ? OperationResult.Failure("模拟按键释放失败")
+                : OperationResult.Success());
 
         public ValueTask ReleaseAllAsync(nint windowHandle, CancellationToken cancellationToken)
         {
+            cancellationToken.ThrowIfCancellationRequested();
             ReleaseCalls++;
             return ValueTask.CompletedTask;
         }

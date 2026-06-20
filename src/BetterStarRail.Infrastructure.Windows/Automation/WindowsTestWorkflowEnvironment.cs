@@ -45,7 +45,7 @@ public sealed class WindowsTestWorkflowEnvironment(
         }
 
         lastFrame = capture.Frame;
-        lastObservation = new WorkflowObservation(window.Snapshot, pageDetector.Detect(capture.Frame));
+        lastObservation = new WorkflowObservation(window.Snapshot, pageDetector.Detect(capture.Frame, cancellationToken));
         return lastObservation;
     }
 

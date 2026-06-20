@@ -1,6 +1,6 @@
 ﻿# Privacy
 
-Better Star Rail is local-first. The initial repository contains no telemetry, no cloud service, and no upload path.
+Better Star Rail is local-first. V1 contains no telemetry, cloud service, or upload path. Failure diagnostics are written only to `%LocalAppData%\BetterStarRail\diagnostics\` and are never uploaded automatically.
 
 The project must not collect or store account passwords, cookies, tokens, payment data, or browser sessions. Logs and diagnostics must avoid sensitive content and must not be uploaded without explicit user action and clear preview.
 

@@ -14,5 +14,5 @@ Complete this file before release.
 
 ## Reference projects
 
-- BetterGI: GPL-3.0; architecture/reference or compliant GPL reuse only.
-- Repositories without a visible license: no copying or distribution without written permission.
+- BetterGI: GPL-3.0，仅记录为第三方参考项目许可证；除非未来重新进行许可证决策，否则不得复制其代码或素材。
+- Repositories without a visible license: 只允许观察公开功能，不得复制代码、素材或文案；书面授权需另行审查。

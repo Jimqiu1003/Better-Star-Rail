@@ -1,5 +1,7 @@
 # Better Star Rail 仓库初始化任务书
 
+> 历史任务书提示：本文用于 V0 仓库初始化审计。第 9 节的 `0.1.0-dev` 已被当前 `0.2.0-dev` 开发版本取代；现行阶段/版本术语以 `docs/ROADMAP.md` 和 `docs/project-status/` 为准。技术与许可证基线仍以 ADR-0004 为准。
+
 > 文档版本：v0.1  
 > 项目阶段：仓库初始化 / 工程基线建立  
 > 适用对象：Codex、Claude Code、GitHub Copilot Agent 或项目开发者  

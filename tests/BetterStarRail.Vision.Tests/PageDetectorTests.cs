@@ -51,6 +51,18 @@ public sealed class PageDetectorTests
     }
 
     [Fact]
+    public void Detect_honors_pre_cancelled_token()
+    {
+        using var cancellation = new CancellationTokenSource();
+        cancellation.Cancel();
+
+        Assert.Throws<OperationCanceledException>(() =>
+            new SolidColorPageDetector().Detect(
+                CapturedFrame.CreateSolid(8, 8, 30, 120, 220),
+                cancellation.Token));
+    }
+
+    [Fact]
     public void Crop_rejects_roi_outside_frame()
     {
         var frame = CapturedFrame.CreateSolid(4, 4, 1, 2, 3);

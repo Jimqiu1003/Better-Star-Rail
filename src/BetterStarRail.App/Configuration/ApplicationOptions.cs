@@ -10,5 +10,5 @@ public sealed class ApplicationOptions
 
     public string Stage { get; set; } = "V1";
 
-    public string Status { get; set; } = "自建测试窗口安全闭环已完成";
+    public string Status { get; set; } = "V1 自建测试窗口安全闭环已完成，待主线集成";
 }
