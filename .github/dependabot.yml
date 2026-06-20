@@ -5,6 +5,13 @@ updates:
     schedule:
       interval: weekly
       day: monday
+    groups:
+      microsoft-extensions:
+        patterns:
+          - "Microsoft.Extensions.*"
+        update-types:
+          - minor
+          - patch
     open-pull-requests-limit: 5
   - package-ecosystem: github-actions
     directory: "/"
