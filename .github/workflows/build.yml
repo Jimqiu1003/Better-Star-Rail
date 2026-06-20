@@ -25,12 +25,20 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
       - name: Test
-        run: dotnet test --configuration Release --no-build --collect:"XPlat Code Coverage" --logger "trx" --results-directory TestResults
+        run: >
+          dotnet test BetterStarRail.sln
+          --configuration Release
+          --no-build
+          --logger "trx;LogFileName=test-results.trx"
+          --results-directory "${{ github.workspace }}/TestResults"
+          --collect:"XPlat Code Coverage"
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v7
         with:
           name: test-results
-          path: TestResults
-          if-no-files-found: error
+          path: |
+            TestResults/**/*.trx
+            TestResults/**/coverage.cobertura.xml
+          if-no-files-found: warn
           retention-days: 7

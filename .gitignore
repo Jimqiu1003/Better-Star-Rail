@@ -25,6 +25,6 @@ logs/
 *.db-shm
 *.db-wal
 crash-dumps/
-diagnostics/
+/diagnostics/
 Thumbs.db
 Desktop.ini
