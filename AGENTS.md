@@ -41,3 +41,19 @@ Before work, read all of the following:
 After relevant changes, run `dotnet restore`, `dotnet format --verify-no-changes`, `dotnet build --configuration Release --no-restore`, `dotnet test --configuration Release --no-build`, `git diff --check`, and `git status --short` when available.
 
 Use Conventional Commits. If code and docs conflict, record the conflict and follow the safer rule until the project owner decides.
+
+## Review guidelines
+
+Treat the following as blocking issues:
+
+- Game memory access or modification.
+- DLL injection, hooks, drivers, or remote threads.
+- Anti-cheat bypass, detection avoidance, stealth, or behavior disguise.
+- Private game protocol or unpublished API access.
+- Credential, cookie, token, or verification-code collection.
+- Automatic premium-currency spending.
+- Input sent without verifying the target window.
+- Emergency-stop bypass or non-cancellable loops.
+- Arbitrary script or plugin execution.
+- Silent upload of screenshots, logs, or personal data.
+- Unlicensed third-party code, assets, models, or binaries.
