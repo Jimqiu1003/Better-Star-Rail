@@ -32,7 +32,7 @@ public partial class App : Application
             var window = host.Services.GetRequiredService<MainWindow>();
             MainWindow = window;
             window.Show();
-            logger.LogInformation("Better Star Rail V0 application started");
+            logger.LogInformation("Better Star Rail V1 application started");
         }
         catch (Exception exception)
         {

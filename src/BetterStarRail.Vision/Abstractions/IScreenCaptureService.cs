@@ -4,7 +4,8 @@ namespace BetterStarRail.Vision.Abstractions;
 
 public interface IScreenCaptureService
 {
-    ValueTask<ReadOnlyMemory<byte>> CaptureAsync(
-        CaptureRegion region,
+    ValueTask<CaptureResult> CaptureAsync(
+        nint windowHandle,
+        CaptureRegion? region,
         CancellationToken cancellationToken);
 }

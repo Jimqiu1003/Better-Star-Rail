@@ -57,8 +57,8 @@ public sealed class ApplicationBaselineTests
             var viewModel = host.Services.GetRequiredService<MainWindowViewModel>();
 
             Assert.Equal("Better Star Rail", viewModel.ApplicationName);
-            Assert.Equal("V0", viewModel.Stage);
-            Assert.Equal("工程初始化完成", viewModel.Status);
+            Assert.Equal("V1", viewModel.Stage);
+            Assert.Equal("自建测试窗口安全闭环已完成", viewModel.Status);
         }
         finally
         {

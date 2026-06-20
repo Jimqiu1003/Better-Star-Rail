@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\BetterStarRail.Automation\BetterStarRail.Automation.csproj" />
+    <ProjectReference Include="..\..\src\BetterStarRail.Infrastructure.Windows\BetterStarRail.Infrastructure.Windows.csproj" />
+    <ProjectReference Include="..\..\src\BetterStarRail.Vision\BetterStarRail.Vision.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>BetterStarRail.TestWindow.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\BetterStarRail.Core\BetterStarRail.Core.csproj" />
+  </ItemGroup>
+</Project>
