@@ -103,8 +103,32 @@ public sealed class ApplicationBaselineTests
         }
     }
 
+    [Fact]
+    public void V1_runner_foreground_wait_propagates_cancellation_token()
+    {
+        var repositoryRoot = FindRepositoryRoot();
+        var runnerSource = File.ReadAllText(Path.Combine(
+            repositoryRoot,
+            "tools",
+            "BetterStarRail.V1.Runner",
+            "Program.cs"));
+
+        Assert.Contains("Task.Delay(100, cancellation.Token)", runnerSource, StringComparison.Ordinal);
+    }
+
     private static string CreateTemporaryRoot()
     {
         return Path.Combine(Path.GetTempPath(), $"BetterStarRail.Tests.{Guid.NewGuid():N}");
+    }
+
+    private static string FindRepositoryRoot()
+    {
+        var current = new DirectoryInfo(AppContext.BaseDirectory);
+        while (current is not null && !File.Exists(Path.Combine(current.FullName, "BetterStarRail.sln")))
+        {
+            current = current.Parent;
+        }
+
+        return current?.FullName ?? throw new DirectoryNotFoundException("无法定位仓库根目录。");
     }
 }

@@ -11,7 +11,7 @@
   - 可取消的有限状态机、急停、新输入阻止和按键/鼠标释放；
   - `%LocalAppData%\BetterStarRail\diagnostics\` 本地失败诊断；
   - 确定性 100 次闭环与原生测试窗口 100 次闭环验证工具。
-- V1 收口验证结果：58/58 自动化测试通过，确定性闭环 100/100，原生测试窗口闭环 100/100，错误窗口输入调用 0。
+- V1 收口验证结果：59/59 自动化测试通过，确定性闭环 100/100，原生测试窗口闭环 100/100，错误窗口输入调用 0。
 - GDI `BitBlt` 仅作为 V1 测试实现；真实游戏相关阶段仍需验证 Windows Graphics Capture。
 
 - Initialize repository governance documents.

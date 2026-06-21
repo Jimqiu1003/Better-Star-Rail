@@ -30,7 +30,15 @@ if (!located.Snapshot.IsForeground)
     var deadline = DateTimeOffset.UtcNow + TimeSpan.FromSeconds(15);
     while (DateTimeOffset.UtcNow < deadline && !cancellation.IsCancellationRequested)
     {
-        await Task.Delay(100);
+        try
+        {
+            await Task.Delay(100, cancellation.Token);
+        }
+        catch (OperationCanceledException)
+        {
+            Console.Error.WriteLine("等待已取消，未发送任何输入。");
+            return 3;
+        }
         var current = windows.ReadSnapshot(located.Snapshot.Identity.Handle);
         if (current.Succeeded && current.Snapshot is { IsForeground: true })
         {
