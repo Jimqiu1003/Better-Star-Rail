@@ -1,10 +1,10 @@
 # Better Star Rail V1 主线集成状态
 
-状态：Completed on feature branch, pending integration
+状态：Completed and integrated into main
 
 开发版本：`0.2.0-dev`
 
-V1 已在 `codex/feature-v1-test-closed-loop` 完成，仅等待 Pull Request 人工审查与主线集成。V0 已完成，V2 仍为 Planned，尚未开始。`v0.1.0` 是未来产品发布版本；当前没有 Release 或 tag。
+V1 已通过 Pull Request #11 完成人工审查并合并到 `main`。V0 已完成，V2 仍为 Planned，尚未开始。`v0.1.0` 是未来产品发布版本；当前没有 Release 或 tag。
 
 ## V1 范围
 

@@ -8,7 +8,7 @@ V0、V1、V2 表示开发阶段；M0、M1、M2 表示里程碑。当前开发版
 - C# 14、.NET 10 LTS、WPF、MVVM、win-x64 工程骨架。
 - 本地配置、日志、测试、Build、CodeQL 与依赖治理。
 
-## V1 — Completed on feature branch, pending integration
+## V1 — Completed and integrated into main
 
 - 项目自建测试窗口。
 - 窗口、客户区、DPI、截图、识别、安全守卫、定向输入、动作后验证与急停闭环。

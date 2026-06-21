@@ -7,7 +7,7 @@ Better Star Rail 是一个非官方的 C# Windows 桌面视觉自动化框架，
 | 开发阶段 | 状态 | 范围 |
 |---|---|---|
 | V0 | Completed | 仓库治理、WPF/Host/MVVM 工程基线、配置、日志、测试与 CI |
-| V1 | Completed on feature branch, pending integration | 仅在项目自建测试窗口上完成截图、识别、安全守卫、定向输入、动作后验证与急停闭环 |
+| V1 | Completed and integrated into main | 仅在项目自建测试窗口上完成截图、识别、安全守卫、定向输入、动作后验证与急停闭环 |
 | V2 | Planned | 尚未开始，范围需由项目负责人另行确认 |
 
 V0、V1、V2 表示开发阶段；M0、M1、M2 表示里程碑；`0.2.0-dev` 是当前开发版本；`v0.1.0` 是未来产品发布版本，不代表当前已有 Release。
