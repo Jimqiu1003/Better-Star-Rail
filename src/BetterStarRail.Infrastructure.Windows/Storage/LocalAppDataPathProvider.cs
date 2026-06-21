@@ -17,6 +17,7 @@ public sealed class LocalAppDataPathProvider : IAppPathProvider
         RootDirectory = Path.GetFullPath(rootDirectory);
         LogsDirectory = Path.Combine(RootDirectory, "logs");
         ConfigurationDirectory = Path.Combine(RootDirectory, "config");
+        DiagnosticsDirectory = Path.Combine(RootDirectory, "diagnostics");
     }
 
     public string RootDirectory { get; }
@@ -25,9 +26,12 @@ public sealed class LocalAppDataPathProvider : IAppPathProvider
 
     public string ConfigurationDirectory { get; }
 
+    public string DiagnosticsDirectory { get; }
+
     public void EnsureDirectories()
     {
         Directory.CreateDirectory(LogsDirectory);
         Directory.CreateDirectory(ConfigurationDirectory);
+        Directory.CreateDirectory(DiagnosticsDirectory);
     }
 }

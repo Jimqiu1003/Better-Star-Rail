@@ -19,6 +19,7 @@ public sealed class ApplicationBaselineTests
         Assert.Equal(expectedRoot, provider.RootDirectory);
         Assert.Equal(Path.Combine(expectedRoot, "logs"), provider.LogsDirectory);
         Assert.Equal(Path.Combine(expectedRoot, "config"), provider.ConfigurationDirectory);
+        Assert.Equal(Path.Combine(expectedRoot, "diagnostics"), provider.DiagnosticsDirectory);
         Assert.False(provider.RootDirectory.StartsWith(Directory.GetCurrentDirectory(), StringComparison.OrdinalIgnoreCase));
     }
 
@@ -34,6 +35,7 @@ public sealed class ApplicationBaselineTests
 
             Assert.True(Directory.Exists(provider.LogsDirectory));
             Assert.True(Directory.Exists(provider.ConfigurationDirectory));
+            Assert.True(Directory.Exists(provider.DiagnosticsDirectory));
         }
         finally
         {
@@ -57,8 +59,8 @@ public sealed class ApplicationBaselineTests
             var viewModel = host.Services.GetRequiredService<MainWindowViewModel>();
 
             Assert.Equal("Better Star Rail", viewModel.ApplicationName);
-            Assert.Equal("V0", viewModel.Stage);
-            Assert.Equal("工程初始化完成", viewModel.Status);
+            Assert.Equal("V1", viewModel.Stage);
+            Assert.Equal("V1 自建测试窗口安全闭环已完成，待主线集成", viewModel.Status);
         }
         finally
         {
@@ -101,8 +103,32 @@ public sealed class ApplicationBaselineTests
         }
     }
 
+    [Fact]
+    public void V1_runner_foreground_wait_propagates_cancellation_token()
+    {
+        var repositoryRoot = FindRepositoryRoot();
+        var runnerSource = File.ReadAllText(Path.Combine(
+            repositoryRoot,
+            "tools",
+            "BetterStarRail.V1.Runner",
+            "Program.cs"));
+
+        Assert.Contains("Task.Delay(100, cancellation.Token)", runnerSource, StringComparison.Ordinal);
+    }
+
     private static string CreateTemporaryRoot()
     {
         return Path.Combine(Path.GetTempPath(), $"BetterStarRail.Tests.{Guid.NewGuid():N}");
+    }
+
+    private static string FindRepositoryRoot()
+    {
+        var current = new DirectoryInfo(AppContext.BaseDirectory);
+        while (current is not null && !File.Exists(Path.Combine(current.FullName, "BetterStarRail.sln")))
+        {
+            current = current.Parent;
+        }
+
+        return current?.FullName ?? throw new DirectoryNotFoundException("无法定位仓库根目录。");
     }
 }

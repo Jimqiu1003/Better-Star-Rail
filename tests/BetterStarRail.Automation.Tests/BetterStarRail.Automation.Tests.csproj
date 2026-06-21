@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\BetterStarRail.Automation\BetterStarRail.Automation.csproj" />
     <ProjectReference Include="..\..\src\BetterStarRail.Core\BetterStarRail.Core.csproj" />
+    <ProjectReference Include="..\..\src\BetterStarRail.Vision\BetterStarRail.Vision.csproj" />
   </ItemGroup>
 
 </Project>

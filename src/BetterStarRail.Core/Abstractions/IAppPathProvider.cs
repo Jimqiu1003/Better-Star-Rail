@@ -8,5 +8,7 @@ public interface IAppPathProvider
 
     string ConfigurationDirectory { get; }
 
+    string DiagnosticsDirectory { get; }
+
     void EnsureDirectories();
 }

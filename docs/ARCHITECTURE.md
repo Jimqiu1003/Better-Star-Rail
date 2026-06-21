@@ -21,4 +21,6 @@ BetterStarRail.Infrastructure.Windows -> Core, Automation, Vision
 
 No other production-project dependency or circular reference is allowed without an accepted ADR.
 
-The approved automation model is external vision: capture visible screen state, detect UI state, decide, perform controlled input, then verify the result. This repository does not yet implement real capture, OCR, or input dispatch.
+The approved automation model is external vision: capture visible screen state, detect UI state, decide, perform controlled input, then verify the result.
+
+V1 implements this sequence only for the project-owned test window. GDI `BitBlt` is the V1 test capture backend, solid-color anchors are deterministic test recognition rather than OCR, and targeted window messages are restricted to the exact saved test-window identity. Real-game capture and input are not implemented. Windows Graphics Capture remains the preferred candidate for a future real-window phase and must be separately validated before use.

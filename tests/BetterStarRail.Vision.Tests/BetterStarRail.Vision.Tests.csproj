@@ -17,6 +17,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="GoldenImages\*.ppm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\src\BetterStarRail.Vision\BetterStarRail.Vision.csproj" />
     <ProjectReference Include="..\..\src\BetterStarRail.Core\BetterStarRail.Core.csproj" />
   </ItemGroup>
